@@ -177,6 +177,7 @@ class AlienInvasion:
             # Destroy existing bullets and create a new fleet.
             self.bullets.empty()
             self._create_fleet()
+            self.settings.increase_speed()
 
 
         # Check for bullet-alien collisions.
@@ -202,6 +203,7 @@ class AlienInvasion:
             sleep(0.5)
         else:
             self.game_active = False
+            pygame.mouse.set_visible(True)
 
     def _update_aliens(self):
         """Update the positions of all aliens in the fleet."""
