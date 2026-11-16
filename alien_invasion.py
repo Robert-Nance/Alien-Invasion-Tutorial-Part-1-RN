@@ -191,6 +191,8 @@ class AlienInvasion:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
 
+            self.bullet_sound.play()
+
     def _update_bullets(self):
         """Update bullets and remove bullets off the screen."""
         self.bullets.update()
