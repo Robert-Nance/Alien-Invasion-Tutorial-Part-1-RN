@@ -23,7 +23,7 @@ class Bullet(Sprite):
 
         # Resize the bullet.
         self.image = pygame.transform.scale(
-            self.image, (12, 30)
+            self.image, (20, 40)
         )
 
         # Create a rectangle from the image.
