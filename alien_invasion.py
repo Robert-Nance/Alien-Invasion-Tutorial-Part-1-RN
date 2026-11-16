@@ -35,7 +35,7 @@ class AlienInvasion:
                 self.settings.screen_height,
             )
         )
-        pygame.display.set_caption("Paper Escaper")
+        pygame.display.set_caption("Paper Escaper - Track 2")
 
         # Create an instance to store game statistics.
         # and create a scoreboard.
