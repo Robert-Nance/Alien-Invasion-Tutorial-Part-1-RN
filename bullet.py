@@ -1,5 +1,7 @@
 import pygame
 
+from pathlib import Path
+
 from pygame.sprite import Sprite
 
 
@@ -9,23 +11,26 @@ class Bullet(Sprite):
     def __init__(self, ai_game):
         """Create a bullet at the ship's current position."""
         super().__init__()
-
         self.screen = ai_game.screen
         self.settings = ai_game.settings
-        self.color = self.settings.bullet_color
 
-        # Create the bullet rectangle.
-        self.rect = pygame.Rect(
-            0,
-            0,
-            self.settings.bullet_width,
-            self.settings.bullet_height,
+        bullet_path = (
+            Path(__file__).resolve().parent
+            / "images" 
+            / "Bullet.png"
+        )
+        self.image = pygame.image.load(str(bullet_path))
+
+        # Resize the bullet.
+        self.image = pygame.transform.scale(
+            self.image, (20, 40)
         )
 
-        # Position the bullet at the top center of the ship.
+        # Create a rectangle from the image.
+        self.rect = self.image.get_rect()
         self.rect.midtop = ai_game.ship.rect.midtop
 
-        # Store the exact vertical position.
+        # Store bullet vertical position.
         self.y = float(self.rect.y)
 
     def update(self):
@@ -35,4 +40,4 @@ class Bullet(Sprite):
 
     def draw_bullet(self):
         """Draw the bullet to the screen."""
-        pygame.draw.rect(self.screen, self.color, self.rect)
+        self.screen.blit(self.image, self.rect)

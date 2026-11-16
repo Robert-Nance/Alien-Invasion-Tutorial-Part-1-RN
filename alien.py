@@ -1,5 +1,7 @@
 import pygame
 from pygame.sprite import Sprite
+from pathlib import Path
+import random
 
 class Alien(Sprite):
     """A class to represent a single alien in the fleet."""
@@ -10,8 +12,19 @@ class Alien(Sprite):
         self.screen = ai_game.screen
         self.settings = ai_game.settings
 
-        # Load the alien image and set its rect attribute.
-        self.image = pygame.image.load('images/alien.bmp')
+        # List of aliens.
+        alien_images = [
+            "Box.png",
+            "Cyclops.png",
+            "Horn.png"
+        ]
+
+        # Randomly select an alien.
+        selected_image = random.choice(alien_images)
+
+        # Load the alien image.
+        image_path = Path(__file__).resolve().parent / "images" / selected_image
+        self.image = pygame.image.load(str(image_path))
         self.rect = self.image.get_rect()
 
         # Start each new alien near the top left of the screen.
