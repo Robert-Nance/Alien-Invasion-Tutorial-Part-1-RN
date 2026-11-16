@@ -30,29 +30,28 @@ class AlienInvasion:
 
         self.settings = Settings()
 
-        
-    # Create the game window.
-    self.screen = pygame.display.set_mode(
-        (
-            self.settings.screen_width,
-            self.settings.screen_height,
+        # Create the game window.
+        self.screen = pygame.display.set_mode(
+            (
+                self.settings.screen_width,
+                self.settings.screen_height,
+            )
         )
-    )
 
-    # Load background image.
-    background_path = (
-        Path(__file__).resolve().parent
-        / "images"
-        / "PaperBackground.jpg"
-    )
-    self.background = pygame.image.load(str(background_path))
+            # background image
+        background_path = (
+        Path(__file__).resolve().parent 
+            / "images" 
+            / "PaperBackground.jpg"
+        )
+        self.background = pygame.image.load(str(background_path))
 
-    # Resize background to fit the screen.
-    self.background = pygame.transform.scale(
-        self.background,
-        (self.settings.screen_width, self.settings.screen_height)
-    )
-
+        # Resize background to fit the screen
+        self.background = pygame.transform.scale(
+            self.background,
+            (self.settings.screen_width, self.settings.screen_height)
+        )
+        
         pygame.display.set_caption("Paper Escaper - Track 2")
 
         # Create an instance to store game statistics.
