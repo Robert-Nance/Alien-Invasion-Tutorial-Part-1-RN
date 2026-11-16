@@ -272,7 +272,7 @@ class AlienInvasion:
     
     def _update_screen(self):
         """Redraw the screen and all game elements."""
-        self.screen.fill(self.settings.bg_color)
+        self.screen.blit(self.background, (0,0))
 
         # Draw bullets.
         for bullet in self.bullets.sprites():
