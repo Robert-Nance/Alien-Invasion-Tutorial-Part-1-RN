@@ -18,6 +18,8 @@ from bullet import Bullet
 
 from alien import Alien
 
+from pathlib import Path
+
 
 class AlienInvasion:
     """Overall class to manage game assets and behavior."""
@@ -33,6 +35,16 @@ class AlienInvasion:
             (
                 self.settings.screen_width,
                 self.settings.screen_height,
+            )
+
+            # background image
+            background_path = Path(__file__).resolve().parent / "images" / "PaperBackground.jpg"
+            self.background = pygame.image.load(str(background_path))
+
+            # Resize background to fit the screen
+            self.background = pygame.transform.scale(
+                self.background,
+                (self.settings.screen_width, self.settings.screen_height)
             )
         )
         pygame.display.set_caption("Paper Escaper - Track 2")
