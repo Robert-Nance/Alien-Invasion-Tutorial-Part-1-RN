@@ -28,6 +28,15 @@ class AlienInvasion:
         """Initialize the game and create game resources."""
         pygame.init()
 
+        sound_path = (
+            Path(__file__).resolve().parent 
+            / "sounds"
+            / "BulletSound.wav"
+        )
+        self.bullet_sound = pygame.mixer.Sound(str(sound_path))
+
+        self.bullet_sound.set_volume(1.0)
+
         self.settings = Settings()
 
         # Create the game window.
@@ -51,7 +60,7 @@ class AlienInvasion:
             self.background,
             (self.settings.screen_width, self.settings.screen_height)
         )
-        
+
         pygame.display.set_caption("Paper Escaper - Track 2")
 
         # Create an instance to store game statistics.
