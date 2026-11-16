@@ -15,7 +15,7 @@ class Ship(Sprite):
         self.screen_rect = self.screen.get_rect()
 
         # Load the ship image.
-        image_path = Path(__file__).resolve().parent / "images" / "ship.png"
+        image_path = Path(__file__).resolve().parent / "images" / "PaperShip.png"
         self.image = pygame.image.load(str(image_path))
         self.rect = self.image.get_rect()
 
