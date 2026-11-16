@@ -15,7 +15,7 @@ class Alien(Sprite):
         # List of aliens.
         alien_images = [
             "Box.png",
-            "Cyclops.png"
+            "Cyclops.png",
             "Horn.png"
         ]
 
